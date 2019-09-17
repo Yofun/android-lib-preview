@@ -9,4 +9,18 @@
         android:layout_height="wrap_content"
         android:text="预览图片"
         android:onClick="previewImage"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="说好不哭-周杰伦"
+        android:onClick="previewVideo"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="播放音频"
+        android:onClick="previewAudio"/>
 </LinearLayout>
