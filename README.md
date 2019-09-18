@@ -1,21 +1,30 @@
-package com.hyfun.preview.demo;
+# Android-Library-Preview
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+一个用来查看图片、播放视频、播放音频的库
 
-import com.hyfun.preview.Preview;
+## gradle
 
-import java.util.ArrayList;
-import java.util.List;
+project
 
-public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    allprojects {
+        repositories {
+            ...
+            ...
+            ...
+            maven {
+                url "https://jitpack.io"
+            }
+        }
     }
+    
+    
+module
+
+    implementation 'com.github.HyFun:Android-Library-Preview:1.0.0'
+    
+## 使用
+
+### 查看图片
 
     public void previewImage(View view) {
         List images = new ArrayList<>();
@@ -31,13 +40,18 @@ public class MainActivity extends AppCompatActivity {
         images.add(R.mipmap.big_width);
         Preview.previewImage(this, 0, images, false);
     }
+    
+    
+### 预览视频
 
     public void previewVideo(View view) {
         Preview.previewVideo(this, "说好不哭-周杰伦", "http://tb-video.bdstatic.com/tieba-smallvideo-transcode-crf/8523209_7fa9170b2db9d9a2f0e9e48ed2a76ce6_0.mp4");
     }
-
+    
+    
+### 播放音频
 
     public void previewAudio(View view) {
         Preview.previewAudio(this, "我的名字", "http://cdn1.100rd.com/o_1cggnu8insukcnu18lt6rcegpf2.mp3");
     }
-}
+
