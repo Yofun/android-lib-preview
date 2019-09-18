@@ -38,6 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void previewAudio(View view) {
-        Preview.previewAudio(this,"我的名字","http://cdn1.100rd.com/o_1cggnu8insukcnu18lt6rcegpf2.mp3");
+        Preview.previewAudio(this,"明日晴れるかな","http://m10.music.126.net/20190918164505/39250afe5a6b7c0213fef76e2056f1c1/ymusic/32ba/9bf8/f7d1/981a90d3ce3b19c33512d5ca1af977ea.mp3");
     }
 }
