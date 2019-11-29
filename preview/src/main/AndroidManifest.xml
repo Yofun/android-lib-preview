@@ -11,16 +11,16 @@
         <activity android:name=".PreviewAudioActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/ThemePreview" />
+            android:theme="@style/FunPreviewTheme" />
         <activity
             android:name=".PreviewVideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/ThemePreview" />
+            android:theme="@style/FunPreviewTheme.ImageTheme"/>
         <activity
             android:name=".PreviewImageActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/ThemePreview" />
+            android:theme="@style/FunPreviewTheme.ImageTheme" />
     </application>
 
 </manifest>

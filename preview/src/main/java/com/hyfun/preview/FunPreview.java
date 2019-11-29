@@ -14,7 +14,7 @@ import java.util.List;
  * Email: 775183940@qq.com
  * Description:
  */
-public class Preview {
+public class FunPreview {
 
 
     /**
@@ -38,7 +38,7 @@ public class Preview {
         intent.putExtra(Const.IMAGE_POSITION, position);
         intent.putExtra(Const.IMAGE_LIST, (Serializable) imageList);
         intent.putExtra(Const.IMAGE_IS_LOCAL, isLocal);
-        ActivityOptionsCompat compat = ActivityOptionsCompat.makeCustomAnimation(context, R.anim.activity_up_in, 0);
+        ActivityOptionsCompat compat = ActivityOptionsCompat.makeCustomAnimation(context, R.anim.fun_preview_activity_up_in, 0);
         ActivityCompat.startActivity(context, intent, compat.toBundle());
     }
 
@@ -50,7 +50,7 @@ public class Preview {
     public static final void previewVideo(Context context, String path) {
         Intent intent = new Intent(context, PreviewVideoActivity.class);
         intent.putExtra(Const.VIDEO_PATH, path);
-        ActivityOptionsCompat compat = ActivityOptionsCompat.makeCustomAnimation(context, R.anim.activity_up_in, 0);
+        ActivityOptionsCompat compat = ActivityOptionsCompat.makeCustomAnimation(context, R.anim.fun_preview_activity_up_in, 0);
         ActivityCompat.startActivity(context, intent, compat.toBundle());
     }
 
@@ -63,7 +63,7 @@ public class Preview {
         Intent intent = new Intent(context, PreviewVideoActivity.class);
         intent.putExtra(Const.VIDEO_TITLE, title);
         intent.putExtra(Const.VIDEO_PATH, path);
-        ActivityOptionsCompat compat = ActivityOptionsCompat.makeCustomAnimation(context, R.anim.activity_up_in, 0);
+        ActivityOptionsCompat compat = ActivityOptionsCompat.makeCustomAnimation(context, R.anim.fun_preview_activity_up_in, 0);
         ActivityCompat.startActivity(context, intent, compat.toBundle());
     }
 
@@ -77,7 +77,7 @@ public class Preview {
         Intent intent = new Intent(context, PreviewAudioActivity.class);
         intent.putExtra(Const.AUDIO_TITLE, title);
         intent.putExtra(Const.AUDIO_PATH, path);
-        ActivityOptionsCompat compat = ActivityOptionsCompat.makeCustomAnimation(context, R.anim.activity_up_in, 0);
+        ActivityOptionsCompat compat = ActivityOptionsCompat.makeCustomAnimation(context, R.anim.fun_preview_activity_up_in, 0);
         ActivityCompat.startActivity(context, intent, compat.toBundle());
     }
 }

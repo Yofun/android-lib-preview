@@ -8,10 +8,4 @@ import android.support.v7.app.AppCompatActivity;
  * Description:
  */
 class BaseActivity extends AppCompatActivity {
-
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(0, R.anim.activity_down_out);
-    }
 }

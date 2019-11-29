@@ -2,6 +2,7 @@ package com.hyfun.preview;
 
 import android.Manifest;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import com.hyfun.preview.widget.SlideCloseLayout;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.io.File;
@@ -31,6 +33,8 @@ import io.reactivex.functions.Consumer;
 
 
 public class PreviewImageActivity extends BaseActivity implements ViewPager.OnPageChangeListener, View.OnClickListener {
+
+    private SlideCloseLayout viewSlideLayout;
 
     private ViewPager viewPager;
 
@@ -47,7 +51,12 @@ public class PreviewImageActivity extends BaseActivity implements ViewPager.OnPa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Util.setFullScreen(this);
         setContentView(R.layout.activity_preview_image);
+        //设置activity的背景为黑色
+        getWindow().getDecorView().setBackgroundColor(Color.BLACK);
+
+
         Intent intent = getIntent();
 
         position = intent.getIntExtra(Const.IMAGE_POSITION, 0);
@@ -55,10 +64,32 @@ public class PreviewImageActivity extends BaseActivity implements ViewPager.OnPa
         isLocal = intent.getBooleanExtra(Const.IMAGE_IS_LOCAL, false);
 
 
+        viewSlideLayout = findViewById(R.id.preview_view_big_image_slide_view);
         viewPager = findViewById(R.id.preview_view_big_image_viewpager);
         tvPager = findViewById(R.id.preview_view_big_image_tv_pager);
         tvSave = findViewById(R.id.preview_view_big_image_tv_save);
 
+
+        // 设置背景
+        //给控件设置需要渐变的背景。如果没有设置这个，则背景不会变化
+        viewSlideLayout.setGradualBackground(getWindow().getDecorView().getBackground());
+        viewSlideLayout.setLayoutScrollListener(new SlideCloseLayout.LayoutScrollListener() {
+            @Override
+            public void onLayoutClosed() {
+                finish();
+            }
+
+            @Override
+            public void onScroll(int alpha) {
+                if (alpha != 255) {
+                    tvPager.setVisibility(View.GONE);
+                    tvSave.setVisibility(View.GONE);
+                }else {
+                    tvPager.setVisibility(View.VISIBLE);
+                    tvSave.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         tvSave.setVisibility(isLocal ? View.GONE : View.VISIBLE);
         ImagePagerAdapter pagerAdapter = new ImagePagerAdapter();
@@ -85,8 +116,7 @@ public class PreviewImageActivity extends BaseActivity implements ViewPager.OnPa
                             @Override
                             public void accept(Boolean aBoolean) throws Exception {
                                 if (aBoolean) {
-                                    Toast.makeText(PreviewImageActivity.this, "开始下载图片", Toast.LENGTH_SHORT).show();
-                                    RxSaveImage.saveImageToGallery(PreviewImageActivity.this, Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath(), imageList.get(position));
+                                    RxSaveImage.saveImageToGallery(PreviewImageActivity.this, Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath() + File.separator + "FunPreview", imageList.get(position));
                                 } else {
                                     Toast.makeText(PreviewImageActivity.this, "授权失败", Toast.LENGTH_SHORT).show();
                                 }

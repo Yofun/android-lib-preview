@@ -2,16 +2,20 @@ package com.hyfun.preview;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.hyfun.preview.widget.SlideCloseLayout;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
 public class PreviewVideoActivity extends BaseActivity {
 
+    private SlideCloseLayout slideCloseLayout;
     private StandardGSYVideoPlayer videoView;
     private OrientationUtils orientationUtils;
 
@@ -22,7 +26,10 @@ public class PreviewVideoActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Util.setFullScreen(this);
         setContentView(R.layout.activity_preview_video);
+        //设置activity的背景为黑色
+        getWindow().getDecorView().setBackgroundColor(Color.BLACK);
         initIntent();
         initView();
         initData();
@@ -36,6 +43,7 @@ public class PreviewVideoActivity extends BaseActivity {
     }
 
     private void initView() {
+        slideCloseLayout = findViewById(R.id.preview_view_slide_view);
         videoView = findViewById(R.id.preview_view_play_video);
     }
 
@@ -61,6 +69,21 @@ public class PreviewVideoActivity extends BaseActivity {
         // 设置是否循环播放
         videoView.setLooping(true);
         videoView.startPlayLogic();
+
+
+        // 设置背景
+        //给控件设置需要渐变的背景。如果没有设置这个，则背景不会变化
+        slideCloseLayout.setGradualBackground(getWindow().getDecorView().getBackground());
+        slideCloseLayout.setLayoutScrollListener(new SlideCloseLayout.LayoutScrollListener() {
+            @Override
+            public void onLayoutClosed() {
+                finish();
+            }
+
+            @Override
+            public void onScroll(int alpha) {
+            }
+        });
     }
 
     // —————————————————————生命周期—————————————————————————
@@ -96,6 +119,20 @@ public class PreviewVideoActivity extends BaseActivity {
         GSYVideoManager.releaseAllVideos();
         if (orientationUtils != null)
             orientationUtils.releaseListener();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            if (slideCloseLayout != null) {
+                slideCloseLayout.lock();
+            }
+        } else {
+            if (slideCloseLayout != null) {
+                slideCloseLayout.unLock();
+            }
+        }
     }
 
 }

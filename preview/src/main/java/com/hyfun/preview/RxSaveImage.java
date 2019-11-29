@@ -123,6 +123,7 @@ public class RxSaveImage {
                                     })
                                     .show();
                         } else {
+                            Toast.makeText(context, "开始下载图片", Toast.LENGTH_SHORT).show();
                             file.createNewFile();
                             saveImage(context, resource, file);
                         }
@@ -157,6 +158,13 @@ public class RxSaveImage {
     }
 
 
+    /**
+     * 通知图库刷新
+     * @param context
+     * @param source
+     * @param dest
+     * @throws IOException
+     */
     private static void saveImage(Context context, File source, File dest) throws IOException {
         copyFileUsingFileChannels(source, dest);
         Uri uri = Uri.fromFile(dest);

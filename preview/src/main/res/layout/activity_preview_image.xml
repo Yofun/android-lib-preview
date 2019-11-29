@@ -1,42 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.hyfun.preview.widget.SlideCloseLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/preview_view_big_image_slide_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#000000"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/preview_view_big_image_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:overScrollMode="never"/>
+        android:overScrollMode="never" />
 
     <TextView
         android:id="@+id/preview_view_big_image_tv_pager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom|center"
         android:layout_marginBottom="25dp"
         android:textColor="#fff"
-        tools:text="1/6"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        tools:text="1/6" />
 
     <TextView
         android:id="@+id/preview_view_big_image_tv_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="20dp"
+        android:layout_gravity="bottom|right"
         android:layout_marginRight="20dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/preview_shape_bg_outline_radius"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
         android:text="保存"
         android:textColor="#fff"
         android:textSize="14sp" />
 
-</RelativeLayout>
+</com.hyfun.preview.widget.SlideCloseLayout>

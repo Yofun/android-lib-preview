@@ -1,8 +1,27 @@
 <resources>
 
-    <style name="ThemePreview" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowFullscreen">true</item>
+    <style name="FunPreviewTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/FunPreviewAnimationStyle</item>
     </style>
 
+    <style name="FunPreviewTheme.ImageTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+
+
+
+
     <dimen name="status_bar_height">24dp</dimen>
+
+
+
+    <!-- 默认Activity跳转动画 -->
+    <style name="FunPreviewAnimationStyle" mce_bogus="1" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fun_preview_activity_up_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/fun_preview_activity_up_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fun_preview_activity_down_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/fun_preview_activity_down_out</item>
+    </style>
 </resources>
