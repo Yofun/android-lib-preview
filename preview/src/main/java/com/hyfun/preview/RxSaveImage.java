@@ -93,7 +93,7 @@ public class RxSaveImage {
                             new AlertDialog.Builder(context)
                                     .setTitle("文件已存在")
                                     .setMessage("是否覆盖已经存在的文件?")
-                                    .setNegativeButton("重命名", new DialogInterface.OnClickListener() {
+                                    .setNegativeButton("另存", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             File newFile = new File(savePath, UUID.randomUUID().toString().replaceAll("-", "") + ".jpg");

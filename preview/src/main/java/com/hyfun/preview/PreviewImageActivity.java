@@ -116,7 +116,7 @@ public class PreviewImageActivity extends BaseActivity implements ViewPager.OnPa
                             @Override
                             public void accept(Boolean aBoolean) throws Exception {
                                 if (aBoolean) {
-                                    RxSaveImage.saveImageToGallery(PreviewImageActivity.this, Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath() + File.separator + "FunPreview", imageList.get(position));
+                                    RxSaveImage.saveImageToGallery(PreviewImageActivity.this, Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath(), imageList.get(position));
                                 } else {
                                     Toast.makeText(PreviewImageActivity.this, "授权失败", Toast.LENGTH_SHORT).show();
                                 }
