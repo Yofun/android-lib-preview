@@ -38,20 +38,20 @@ module
         images.add("https://img.zcool.cn/community/012bc0585250e8a801219c77cf3db4.jpg@1280w_1l_0o_100sh.jpg");
         images.add("https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike220%2C5%2C5%2C220%2C73/sign=e2b9f9478013632701e0ca61f0e6cb89/8644ebf81a4c510f2a9f87816a59252dd52aa5d6.jpg");
         images.add(R.mipmap.big_width);
-        Preview.previewImage(this, 0, images, false);
+        FunPreview.previewImage(this, 0, images, false);
     }
     
     
 ### 预览视频
 
     public void previewVideo(View view) {
-        Preview.previewVideo(this, "说好不哭-周杰伦", "http://tb-video.bdstatic.com/tieba-smallvideo-transcode-crf/8523209_7fa9170b2db9d9a2f0e9e48ed2a76ce6_0.mp4");
+        FunPreview.previewVideo(this, "说好不哭-周杰伦", "http://tb-video.bdstatic.com/tieba-smallvideo-transcode-crf/8523209_7fa9170b2db9d9a2f0e9e48ed2a76ce6_0.mp4");
     }
     
     
 ### 播放音频
 
     public void previewAudio(View view) {
-        Preview.previewAudio(this, "我的名字", "http://cdn1.100rd.com/o_1cggnu8insukcnu18lt6rcegpf2.mp3");
+        FunPreview.previewAudio(this, "我的名字", "http://cdn1.100rd.com/o_1cggnu8insukcnu18lt6rcegpf2.mp3");
     }
 
