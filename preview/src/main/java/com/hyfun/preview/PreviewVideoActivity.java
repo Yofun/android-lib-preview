@@ -27,7 +27,7 @@ public class PreviewVideoActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Util.setFullScreen(this);
-        setContentView(R.layout.activity_preview_video);
+        setContentView(R.layout.fun_activity_preview_video);
         //设置activity的背景为黑色
         getWindow().getDecorView().setBackgroundColor(Color.BLACK);
         initIntent();

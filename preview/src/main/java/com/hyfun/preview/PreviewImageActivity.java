@@ -52,7 +52,7 @@ public class PreviewImageActivity extends BaseActivity implements ViewPager.OnPa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Util.setFullScreen(this);
-        setContentView(R.layout.activity_preview_image);
+        setContentView(R.layout.fun_activity_preview_image);
         //设置activity的背景为黑色
         getWindow().getDecorView().setBackgroundColor(Color.BLACK);
 
@@ -170,7 +170,7 @@ public class PreviewImageActivity extends BaseActivity implements ViewPager.OnPa
         @NonNull
         @Override
         public Object instantiateItem(@NonNull ViewGroup container, int position) {
-            View view = LayoutInflater.from(PreviewImageActivity.this).inflate(R.layout.preview_layout_vp_item_preview_image, container, false);
+            View view = LayoutInflater.from(PreviewImageActivity.this).inflate(R.layout.fun_preview_layout_vp_item_preview_image, container, false);
             final SubsamplingScaleImageView imageView = view.findViewById(R.id.preview_view_big_image_item_photoview);
             final ProgressBar progressBar = view.findViewById(R.id.preview_view_big_image_item_progress);
             progressBar.setVisibility(View.VISIBLE);

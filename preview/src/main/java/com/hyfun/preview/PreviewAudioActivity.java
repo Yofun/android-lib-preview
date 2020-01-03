@@ -45,7 +45,7 @@ public class PreviewAudioActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Util.setFullScreen(this);
-        setContentView(R.layout.activity_preview_audio);
+        setContentView(R.layout.fun_activity_preview_audio);
         Intent intent = getIntent();
         title = intent.getStringExtra(Const.AUDIO_TITLE);
         audioPath = intent.getStringExtra(Const.AUDIO_PATH);
