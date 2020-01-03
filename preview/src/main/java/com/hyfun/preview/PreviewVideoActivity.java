@@ -51,7 +51,7 @@ public class PreviewVideoActivity extends BaseActivity {
         orientationUtils = new OrientationUtils(this, videoView);
         //初始化不打开外部的旋转
         orientationUtils.setEnable(false);
-        videoView.setUp(videoPath, true, title);
+        videoView.setUp(videoPath, false, title);
         videoView.getBackButton().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
