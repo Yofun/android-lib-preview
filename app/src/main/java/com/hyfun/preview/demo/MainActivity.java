@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void previewVideo(View view) {
-        FunPreview.previewVideo(this, "说好不哭-周杰伦", "http://tb-video.bdstatic.com/tieba-smallvideo-transcode-crf/8523209_7fa9170b2db9d9a2f0e9e48ed2a76ce6_0.mp4");
+        // FunPreview.previewVideo(this, "说好不哭-周杰伦", "http://tb-video.bdstatic.com/tieba-smallvideo-transcode-crf/8523209_7fa9170b2db9d9a2f0e9e48ed2a76ce6_0.mp4");
+        FunPreview.previewVideo(this, "说好不哭-周杰伦", "http://58.240.174.254:9059/mcs/app_defect_attachment/2a9f1634bc7e49d0a0f656582eb01c36.mp4");
     }
 
 
